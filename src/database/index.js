@@ -1,6 +1,8 @@
 const mongoose = require('mongoose')
 
-mongoose.connect('mongodb+srv://motorist-vehicles:teste123@cluster0.wrcvg.mongodb.net/motoris-vehicles?retryWrites=true&w=majority', {
+require('dotenv/config')
+
+mongoose.connect(process.env.MONGO_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true,
