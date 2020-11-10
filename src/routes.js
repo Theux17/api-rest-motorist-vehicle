@@ -5,6 +5,7 @@ const MotoristController = require('./controllers/MotoristController')
 const VehicleController = require('./controllers/VehicleController')
 
 const MotoristValidator = require('./validators/motorist')
+const VehicleValidator = require('./validators/vehicle')
 
 // Motorist
 routes.get('/motorists', MotoristController.index)
@@ -14,13 +15,13 @@ routes.put('/motorists/:id', MotoristValidator.put, MotoristController.update)
 routes.delete('/motorists/:id', MotoristValidator.showAndDeleteMotorist, MotoristController.delete)
 
 // add vehicle
-routes.post('/add-vehicles', VehicleController.addVehicle)
+routes.post('/add-vehicles', VehicleValidator.addVehicle, VehicleController.addVehicle)
 
 // Vehicles
 routes.get('/vehicles', VehicleController.index)
-routes.post('/vehicles', VehicleController.create)
-routes.get('/vehicles/:id', VehicleController.show)
-routes.put('/vehicles/:id', VehicleController.update)
-routes.delete('/vehicles/:id', VehicleController.delete)
+routes.post('/vehicles', VehicleValidator.post, VehicleController.create)
+routes.get('/vehicles/:id', VehicleValidator.showAndDeleteVehicle, VehicleController.show)
+routes.put('/vehicles/:id', VehicleValidator.put, VehicleController.update)
+routes.delete('/vehicles/:id', VehicleValidator.showAndDeleteVehicle, VehicleController.delete)
 
 module.exports = routes
