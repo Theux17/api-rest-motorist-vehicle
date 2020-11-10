@@ -4,12 +4,14 @@ const routes = express.Router()
 const MotoristController = require('./controllers/MotoristController')
 const VehicleController = require('./controllers/VehicleController')
 
+const MotoristValidator = require('./validators/motorist')
+
 // Motorist
 routes.get('/motorists', MotoristController.index)
-routes.post('/motorists', MotoristController.create)
-routes.get('/motorists/:id', MotoristController.show)
-routes.put('/motorists/:id', MotoristController.update)
-routes.delete('/motorists/:id', MotoristController.delete)
+routes.post('/motorists', MotoristValidator.post, MotoristController.create)
+routes.get('/motorists/:id', MotoristValidator.showAndDeleteMotorist, MotoristController.show)
+routes.put('/motorists/:id', MotoristValidator.put, MotoristController.update)
+routes.delete('/motorists/:id', MotoristValidator.showAndDeleteMotorist, MotoristController.delete)
 
 // add vehicle
 routes.post('/add-vehicles', VehicleController.addVehicle)

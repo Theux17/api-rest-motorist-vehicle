@@ -22,7 +22,7 @@ module.exports = {
 
         } catch (error) {
             return res.status(400).json({
-                error: "Erro inesperado ao cadastrar uma nova motorista"
+                error: "Erro inesperado ao cadastrar um novo motorista"
             })
         }
     },
@@ -32,7 +32,7 @@ module.exports = {
 
             const motorist = await Motorist.findById(req.params.id)
             
-            res.json({ motorist })
+            return res.json({ motorist })
         
         } catch (error) {
             return res.status(400).json({
@@ -45,11 +45,6 @@ module.exports = {
         try {
             const { name, surname, CPF, dateOfBirth, status } = req.body
             
-            const motorists = await Motorist.find()
-            const foundCPF = motorists.find(motorist => motorist.CPF == CPF && motorist._id != req.params.id)
-            
-            if(foundCPF) return res.status(400).json({ error: "CPF já está em uso" })
-
             const user = await Motorist.findByIdAndUpdate(req.params.id, {
                 name, 
                 surname, 
