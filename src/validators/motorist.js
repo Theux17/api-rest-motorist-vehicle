@@ -42,7 +42,7 @@ async function put(req, res, next) {
         const motorists = await Motorist.find()
 
         const motorist = await Motorist.findById(req.params.id)
-        if(!motorist) return res.status(400).json({ error: "Usuário não está cadastrado." })
+        if(!motorist) return res.status(400).json({ error: "Motorista não está cadastrado." })
 
         const cpfAlreadyRegistered = motorists.find(motorist => motorist.CPF == CPF && motorist._id != req.params.id )
         if(cpfAlreadyRegistered) return res.status(400).json({ error: "CPF já está cadastrado." })
@@ -60,7 +60,7 @@ async function put(req, res, next) {
 async function showAndDeleteMotorist(req, res, next){
     try {
         const motorist = await Motorist.findById(req.params.id)
-        if(!motorist) return res.status(400).json({ error: "Usuário não está cadastrado." })
+        if(!motorist) return res.status(400).json({ error: "Motorista não está cadastrado." })
 
         next()
     }
