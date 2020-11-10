@@ -1,6 +1,6 @@
 const moongose = require('../database/index')
 
-const UserSchema = new moongose.Schema({
+const MotoristSchema = new moongose.Schema({
     name:{
         type: String,
         required: true
@@ -29,8 +29,8 @@ const UserSchema = new moongose.Schema({
     }],
 })
 
-UserSchema.set('timestamps', true)
+MotoristSchema.set('timestamps', true)
 
-const Motorist = moongose.model('Motorist', UserSchema)
+const Motorist = moongose.model('Motorist', MotoristSchema)
 
 module.exports = Motorist
