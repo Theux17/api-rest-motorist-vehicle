@@ -1,4 +1,4 @@
-<h1 align="center" > API Rest - Cadastro de motorista e veículos  </h1>
+<h1 align="center" > API Rest - Cadastro de motoristas e veículos  </h1>
 
 <p>O projeto é uma ideia de cadastro aonde o motorista pode colocar o seus dados como por exemplo o <strong>CPF</strong> que é único de cada pessoa, você também pode fazer o cadastro dos veículos com os dados únicos de cada veículo como <strong>renavam</strong> e a <strong>placa</strong>, depois de ter motoristas e veículos cadastrados você pode adicionar o id dos veículos ao um motorista, mas para realizar essa operação o motorista precisar estar com o <strong>status</strong> ativo no sistema.</p>
 
